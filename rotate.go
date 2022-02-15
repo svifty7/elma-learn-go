@@ -21,6 +21,10 @@ func Solution(A []int, K int) ([]int, error) {
 		return A, err
 	}
 
+	if K == 0 {
+		return A, err
+	}
+
 	length := len(A)
 
 	if length <= 1 {
@@ -29,15 +33,25 @@ func Solution(A []int, K int) ([]int, error) {
 
 	A = append(make([]int, 0, length), A...)
 	K = K % length
+	isKNegative := K < 0
+
+	if isKNegative {
+		A = reverse(A)
+		K = -K
+	}
 
 	A = append(A[length-K:], A[:length-K]...)
+
+	if isKNegative {
+		return reverse(A), err
+	}
 
 	return A, err
 }
 
 func check(A []int, K int) error {
-	if K < 0 || K > 100 {
-		err := fmt.Errorf("переменная K должна быть в диапазоне от 0 до 100")
+	if K < -100 || K > 100 {
+		err := fmt.Errorf("переменная K должна быть в диапазоне от -100 до 100")
 
 		if err != nil {
 			return err
@@ -61,4 +75,14 @@ func check(A []int, K int) error {
 	}
 
 	return err
+}
+
+func reverse(A []int) []int {
+	res := make([]int, len(A))
+
+	for i, val := range A {
+		res[len(A)-i-1] = val
+	}
+
+	return res
 }
