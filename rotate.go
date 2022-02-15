@@ -5,16 +5,16 @@ import (
 )
 
 func main() {
-	solution, err := Solution([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 3)
+	res, err := getRotatedArray([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 3)
 
 	if err != nil {
 		panic(err)
 	}
 
-	fmt.Println(solution)
+	fmt.Println(res)
 }
 
-func Solution(A []int, K int) ([]int, error) {
+func getRotatedArray(A []int, K int) ([]int, error) {
 	err := check(A, K)
 
 	if err != nil {
@@ -31,7 +31,6 @@ func Solution(A []int, K int) ([]int, error) {
 		return A, err
 	}
 
-	A = append(make([]int, 0, length), A...)
 	K = K % length
 	isKNegative := K < 0
 
