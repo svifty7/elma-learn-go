@@ -1,7 +1,6 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 )
 
@@ -38,7 +37,7 @@ func Solution(A []int, K int) ([]int, error) {
 
 func check(A []int, K int) error {
 	if K < 0 || K > 100 {
-		err := errors.New("переменная K должна быть в диапазоне от 0 до 100")
+		err := fmt.Errorf("переменная K должна быть в диапазоне от 0 до 100")
 
 		if err != nil {
 			return err
@@ -46,7 +45,7 @@ func check(A []int, K int) error {
 	}
 
 	if len(A) > 100 {
-		err := errors.New("длина массива A должна быть в диапазоне от 0 до 100")
+		err := fmt.Errorf("длина массива A должна быть в диапазоне от 0 до 100")
 
 		if err != nil {
 			return err
