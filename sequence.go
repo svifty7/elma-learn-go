@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 func main() {
 	res, err := sequence([]int{10, 9, 4, 1, 2, 3, 7, 5, 6, 8})
@@ -23,26 +26,17 @@ func sequence(A []int) (int, error) {
 		return 1, nil
 	}
 
-	length := len(A)
-	isExist := false
+	sort.Ints(A)
 
-	for i := 0; i < length; i++ {
-		isExist = false
+	res := 1
 
-		if (i == length-1) && A[i]-1 == A[i-1] {
-			return 1, nil
-		}
-
-		for j := 0; isExist != true && j < length; j++ {
-			isExist = A[j] == A[i]+1 || A[j] == A[i]-1
-		}
-
-		if isExist == false {
-			return 0, nil
+	for i := 0; i < len(A)-1 && res != 0; i++ {
+		if A[i]+1 != A[i+1] {
+			res = 0
 		}
 	}
 
-	return 1, nil
+	return res, nil
 }
 
 func checkSequence(A []int) error {
