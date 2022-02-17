@@ -15,7 +15,7 @@ func main() {
 }
 
 func getRotatedArray(A []int, K int) ([]int, error) {
-	err := check(A, K)
+	err := checkRotate(A, K)
 
 	if err != nil {
 		return A, err
@@ -48,7 +48,7 @@ func getRotatedArray(A []int, K int) ([]int, error) {
 	return A, err
 }
 
-func check(A []int, K int) error {
+func checkRotate(A []int, K int) error {
 	if K < -100 || K > 100 {
 		err := fmt.Errorf("переменная K должна быть в диапазоне от -100 до 100")
 
