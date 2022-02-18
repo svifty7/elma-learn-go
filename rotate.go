@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	res, err := getRotatedArray([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 3)
+	res, err := GetRotatedArray([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 3)
 
 	if err != nil {
 		panic(err)
@@ -14,7 +14,7 @@ func main() {
 	fmt.Println(res)
 }
 
-func getRotatedArray(A []int, K int) ([]int, error) {
+func GetRotatedArray(A []int, K int) ([]int, error) {
 	err := checkRotate(A, K)
 
 	if err != nil {

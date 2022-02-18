@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	res, err := getSingleElement([]int{1, 1, 2, 1, 3, 3, 4, 7, 6, 7, 4, 6})
+	res, err := GetSingleElement([]int{1, 1, 2, 1, 3, 3, 4, 7, 6, 7, 4, 6})
 
 	if err != nil {
 		panic(err)
@@ -14,7 +14,7 @@ func main() {
 	fmt.Println(res)
 }
 
-func getSingleElement(A []int) (int, error) {
+func GetSingleElement(A []int) (int, error) {
 	numbers := map[int]uint8{}
 
 	for _, val := range A {

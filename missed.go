@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	res, err := missed([]int{1, 2, 3, 4, 6, 7})
+	res, err := GetMissedElement([]int{1, 2, 3, 4, 6, 7})
 
 	if err != nil {
 		panic(err)
@@ -15,7 +15,7 @@ func main() {
 	fmt.Println(res)
 }
 
-func missed(A []int) (int, error) {
+func GetMissedElement(A []int) (int, error) {
 	err := checkMissed(A)
 
 	if err != nil {

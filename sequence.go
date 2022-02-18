@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	res, err := sequence([]int{10, 9, 4, 1, 2, 3, 7, 5, 6, 8})
+	res, err := IsSequence([]int{10, 9, 4, 1, 2, 3, 7, 5, 6, 8})
 
 	if err != nil {
 		panic(err)
@@ -15,7 +15,7 @@ func main() {
 	fmt.Println(res)
 }
 
-func sequence(A []int) (int, error) {
+func IsSequence(A []int) (int, error) {
 	err := checkSequence(A)
 
 	if err != nil {
